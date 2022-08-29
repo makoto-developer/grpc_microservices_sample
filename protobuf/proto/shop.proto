@@ -1,0 +1,55 @@
+syntax = "proto3";
+import "google/protobuf/timestamp.proto";
+package shop;
+
+service ShopService {
+  // ショップの情報を取得
+  rpc GetShopDetail(GetShopDetailRequest) returns (GetShopDetailResponse);
+  rpc GetShopList(GetShopListRequest) returns (GetShopListResponse);
+  rpc UpdateShopInfo(UpdateShopInfoRequest) returns (UpdateShopInfoResponse);
+}
+
+message GetShopDetailRequest {
+  int64 id = 1;
+}
+
+message GetShopDetailResponse {
+  ShopInfo shop_info = 1;
+}
+
+message GetShopListRequest {
+  repeated int64 shop_id = 1;
+}
+
+message GetShopListResponse {
+  repeated ShopInfo shop_list = 1;
+}
+
+message UpdateShopInfoRequest {
+  int64 id = 1;
+  message Update {
+    string  name = 1;
+    Address address = 2;
+    repeated int64 sister_shops = 3;
+  }
+  Update update = 2;
+  google.protobuf.Timestamp open_date = 3;
+}
+message UpdateShopInfoResponse {
+  ShopInfo shop_info = 1; // アップデートした内容をそのまま帰す
+}
+
+message Address {
+  string zip_code_1 = 1;
+  string zip_code_2 = 2;
+  string address = 3;
+}
+
+message ShopInfo {
+  int64 id = 1;
+  string  name = 2;
+  Address address = 3;
+  repeated int64 sister_shops = 4; // 姉妹店
+  google.protobuf.Timestamp open_date = 5;
+}
+
