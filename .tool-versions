@@ -1,3 +1,4 @@
 golang 1.19
 nodejs 16.17.0
 protoc 3.20.1
+buf 1.7.0

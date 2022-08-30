@@ -1,6 +1,10 @@
 syntax = "proto3";
 import "google/protobuf/timestamp.proto";
+
 package shop;
+
+option go_package = "/;userservice";
+
 
 service ShopService {
   // ショップの情報を取得

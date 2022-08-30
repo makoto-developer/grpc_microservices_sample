@@ -1,0 +1,9 @@
+version: v1
+plugins:
+  - name: shop
+    out: ../microservices/src/proto/gen
+    opt:
+      - paths=source_relative
+  - name: go-grpc
+    opt:
+      - ../microservices/src/proto/gen
