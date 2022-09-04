@@ -14,7 +14,7 @@ service ShopService {
 }
 
 message GetShopDetailRequest {
-  int64 id = 1;
+  uint64 id = 1;
 }
 
 message GetShopDetailResponse {
@@ -22,38 +22,41 @@ message GetShopDetailResponse {
 }
 
 message GetShopListRequest {
-  repeated int64 shop_id = 1;
+  repeated uint64 id = 1;
 }
 
 message GetShopListResponse {
-  repeated ShopInfo shop_list = 1;
+  repeated ShopInfo shop_info_list = 1;
 }
 
 message UpdateShopInfoRequest {
-  int64 id = 1;
-  message Update {
+  uint64 id = 1;
+  message UpdateShopInfo {
     string  name = 1;
     Address address = 2;
-    repeated int64 sister_shops = 3;
+    repeated uint64 sister_shops = 3;
   }
-  Update update = 2;
-  google.protobuf.Timestamp open_date = 3;
+  UpdateShopInfo update_shop_info = 2;
+  google.protobuf.Timestamp open_datetime = 3;
+  google.protobuf.Timestamp close_datetime = 4;
 }
 message UpdateShopInfoResponse {
   ShopInfo shop_info = 1; // アップデートした内容をそのまま帰す
 }
 
 message Address {
-  string zip_code_1 = 1;
-  string zip_code_2 = 2;
-  string address = 3;
+  string country = 1;
+  string zip_code_1 = 2;
+  string zip_code_2 = 3;
+  string address = 4;
 }
 
 message ShopInfo {
-  int64 id = 1;
-  string  name = 2;
-  Address address = 3;
-  repeated int64 sister_shops = 4; // 姉妹店
-  google.protobuf.Timestamp open_date = 5;
+  uint64 id = 1; // ショップID(固有値)
+  string  name = 2; // ショップ名
+  Address address = 3; // 住所
+  uint64 parent_shop_id = 4; // 親支店 0は無し/1以上で裁判
+  repeated uint64 sister_shops = 5; // 姉妹店
+  google.protobuf.Timestamp open_date = 6; // 開店した(or予定の)日付
 }
 
