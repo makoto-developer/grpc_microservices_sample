@@ -2,6 +2,15 @@
 
 お店を探すサービスを例にしてアプリを作ってみる。
 
+## 導入メモ
+
+```shell
+git clone git@github.com:makoto-developer/grpc_microservices_sample.git
+cd grpc_microservices_sample
+asdf install 
+
+```
+
 ## 構成
 
 ## 技術
