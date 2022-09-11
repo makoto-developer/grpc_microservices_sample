@@ -80,6 +80,10 @@ $ buf build
 # Protoから各言語のコードを生成する
 
 ```shell
+cd protobuf
+
+# makeコマンドを実行する前にMakefileを参照して何やっているか理解してから実行すること
+# `microservices`と`frontend`の`proto/`ディレクトリを削除してクリーンな状態にしてから生成しています。
 make protogen
 ```
 
