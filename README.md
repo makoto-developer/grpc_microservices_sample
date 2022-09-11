@@ -24,7 +24,6 @@ mkdir frontend
 
 asdf install
 
-
 # gRPCをインストール
 cd ./protobuf
 go mod init protobuf
@@ -39,6 +38,11 @@ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.2
 
 # ~/.zshrcに追加
 export PATH="$PATH:$(go env GOPATH)/bin"
+
+# protoからtypescriptのコードを生成するライブラリを入れる
+yarn add -D grpc_tools_node_protoc_ts
+
+
 ````
 
 
@@ -48,3 +52,11 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 
 $ buf mod init
 $ buf build
+
+
+# Protoから各言語のコードを生成する
+
+```shell
+make protogen
+```
+
