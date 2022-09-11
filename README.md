@@ -15,6 +15,29 @@ asdf install
 
 ## 技術
 
+# 運用
+
+## ブランチの切り方
+
+mainブランチにマージするとgithubから変なbadgeがつけられるので使わない。
+
+基本はdevブランチで開発
+```text
+git checkout dev
+```
+
+機能追加
+```text
+feature/<app名>/<修正タイトル>
+e.g. feature/protobuf/protogen
+```
+
+バグ修正
+```text
+fix/<app name>/<バグタイトル>
+fix/frontend/bugs
+```
+
 # 環境構築メモ
 ````shell
 mkdir protobuf
