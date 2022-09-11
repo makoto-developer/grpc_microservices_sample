@@ -15,6 +15,29 @@ asdf install
 
 ## 技術
 
+# 運用
+
+## ブランチの切り方
+
+mainブランチにマージするとgithubから変なbadgeがつけられるので使わない。
+
+基本はdevブランチで開発
+```text
+git checkout dev
+```
+
+機能追加
+```text
+feature/<app名>/<修正タイトル>
+e.g. feature/protobuf/protogen
+```
+
+バグ修正
+```text
+fix/<app name>/<バグタイトル>
+fix/frontend/bugs
+```
+
 # 環境構築メモ
 ````shell
 mkdir protobuf
@@ -57,6 +80,10 @@ $ buf build
 # Protoから各言語のコードを生成する
 
 ```shell
+cd protobuf
+
+# makeコマンドを実行する前にMakefileを参照して何やっているか理解してから実行すること
+# `microservices`と`frontend`の`proto/`ディレクトリを削除してクリーンな状態にしてから生成しています。
 make protogen
 ```
 
