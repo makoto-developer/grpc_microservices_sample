@@ -26,7 +26,7 @@ module.exports = {
     quotes:                            [ error, 'single' ], // シングルクォーテーションを強制
     'no-console':                      warn, // consoleは残さない
     'no-debugger':                     warn, // debuggerは残さない
-    'no-alert':                        error, // alert, confirm, promptを残さない
+    'no-alert':                        warn, // alert, confirm, promptを残さない
     'no-unused-vars':                  error, // 使用されていない変数は残さない
     'no-unused-private-class-members': error, // 使用されていないプライベートクラスの変数は残さない
     'new-cap':                         error, // コンストラクター名は大文字で始める
@@ -209,7 +209,7 @@ module.exports = {
     'no-magic-numbers':        error, // マジックナンバーを禁止
 
     // ここからはここから言わなくても大丈夫だろうけど一応入れておくオプション
-    'array-callback-return':      error, // reduceなどの配列の操作でcallbackする関数にreturnを強制する
+    'array-callback-return':      error, // educeなどの配列の操作でcallbackする関数にreturnを強制する
     'no-param-reassign':          error, // パラメータの再設定を禁止
     'no-loop-func':               error, // loop内部で安全でない関数宣言は禁止
     'require-await':              warn, // waitがないasync関数の呼び出しを警告する
