@@ -7,13 +7,13 @@ module.exports = {
   },
   'extends': [
     'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
     'plugin:import/errors',
+    'plugin:import/warnings',
+    'plugin:import/typescript',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:import/typescript',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
   ],
   'parser': '@typescript-eslint/parser',
   'parserOptions': {
@@ -71,9 +71,9 @@ module.exports = {
       'ignoreConstructors': false,
       'avoidQuotes': true,
     }],
-    'one-var': [error, 'never'],
+    'one-var': [error, never],
     'strict': [error, 'safe'],
-    'semi': [error, 'never'],
+    'semi': [error, never],
     'valid-jsdoc': [error, {
       'requireReturn': false,
       'requireParamDescription': false,
@@ -81,7 +81,7 @@ module.exports = {
     }],
     'space-before-function-paren': [error, {
       'anonymous': 'always',
-      'named': 'never',
+      'named': never,
       'asyncArrow': 'always',
     }],
 
@@ -97,10 +97,10 @@ module.exports = {
   },
   'settings': {
     'import/resolver': {
+      typescript: { project: './' },
       'node': {
-        'paths': [
-          'src',
-        ],
+        'extensions': ['.js', '.jsx', '.ts', '.tsx'],
+        'paths': [ 'src' ],
       },
     },
   },
