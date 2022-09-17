@@ -9,19 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "0.27.2",
     "next": "12.3.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "sass": "^1.54.9",
+    "scss": "^0.2.4"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/node": "18.7.16",
     "@types/react": "18.0.19",
     "@types/react-dom": "18.0.6",
-    "@typescript-eslint/eslint-plugin": "^5.36.2",
-    "@typescript-eslint/parser": "^5.36.2",
+    "@typescript-eslint/eslint-plugin": "5.36.2",
+    "@typescript-eslint/parser": "5.36.2",
     "eslint": "8.22.0",
     "eslint-config-next": "12.3.0",
-    "eslint-plugin-react": "^7.31.8",
+    "eslint-import-resolver-typescript": "^3.5.1",
+    "eslint-plugin-react": "7.31.8",
     "typescript": "4.8.3"
   }
 }
