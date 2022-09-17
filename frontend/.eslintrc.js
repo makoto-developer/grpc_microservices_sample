@@ -1,3 +1,4 @@
+/* eslint-disable no-magic-numbers */
 const [warn, error] = [1, 2]
 
 module.exports = {
@@ -126,8 +127,8 @@ module.exports = {
     'computed-property-spacing':   [error, 'never'], // foo['bar']などのブラケットに対して一貫したスタイルを強制
     'eol-last':                    [ error, 'always' ], // ファイルの末尾に空の改行をつける
     'object-curly-spacing':        [error, 'never'], // カーリーブレイスに対して一貫したスタイルを強制する
-    'object-curly-newline':        ['error', {'multiline': true}], // カーリーブレイスの開始と終了のスタイル
-    'object-property-newline':     'error', // オブジェクトのスタイル
+    'object-curly-newline':        [error, {'multiline': true}], // カーリーブレイスの開始と終了のスタイル
+    'object-property-newline':     error, // オブジェクトのスタイル
     'one-var-declaration-per-line':[error, 'initializations'], // 変数宣言に一貫したスタイルを強制
     'max-len':                     [ // 行の長さを制限
       error,
@@ -201,7 +202,6 @@ module.exports = {
     'implicit-arrow-linebreak':error, // アロー関数に一貫したスタイルを強制する
     'arrow-body-style':        [error, 'as-needed'], // アロー関数に一貫したスタイルを強制する
     'func-style':              [error, 'expression'], // functionは必ず変数として宣言させる
-    // eslint-disable-next-line no-magic-numbers
     'max-nested-callbacks':    [error, 3], // 関数のネストは2階層まで
     'no-confusing-arrow':      error, // 比較と混同される表現は()をつける
     'sort-imports':            error, // importはソートする
