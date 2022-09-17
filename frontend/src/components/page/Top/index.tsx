@@ -1,2 +1,3 @@
+import {view} from './view'
 
-const view
+export default view
