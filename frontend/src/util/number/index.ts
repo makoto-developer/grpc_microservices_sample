@@ -1,6 +1,6 @@
 export const isNumeric = (n: unknown): boolean => {
   const [numeric, notNumeric] = [true, false]
-  // string型 or nubmer型以外は有効な数値ではないと判断
+  // string型 or number型以外は有効な数値ではないと判断
   const isTypeOfNumberOrString = ['string', 'number'].some(validType => validType === typeof n)
 
   if (!isTypeOfNumberOrString) return notNumeric
@@ -13,7 +13,7 @@ export const isNumeric = (n: unknown): boolean => {
   if (isNaN(convertToNumber)) return notNumeric
 
   // 有限数出ない場合は数値ではないと判断
-  if ([Infinity, -Infinity].some(inifinity => inifinity === convertToNumber)) return notNumeric
+  if ([Infinity, -Infinity].some(infinity => infinity === convertToNumber)) return notNumeric
 
   // safe integerではない場合は数値でないと判断
   if (Number.isSafeInteger(convertToNumber)) return notNumeric
