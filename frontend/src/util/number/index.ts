@@ -9,7 +9,7 @@ export const isNumeric = (n: unknown): boolean => {
   if (typeof n === 'string' && n === '') return notNumeric
   const convertToNumber = Number(n)
 
-  // 数でないない場合は数値ではないと判断
+  // 数でない場合は数値ではないと判断
   if (isNaN(convertToNumber)) return notNumeric
 
   // 有限数出ない場合は数値ではないと判断
