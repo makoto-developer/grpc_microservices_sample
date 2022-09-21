@@ -7,21 +7,25 @@ module.exports = {
     es2021: true,
     node:   true,
   },
-  extends: ['eslint:recommended',
+  extends: [
+    'eslint:recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:@typescript-eslint/eslint-recommended'],
+    'plugin:@typescript-eslint/eslint-recommended',
+  ],
   parser:       '@typescript-eslint/parser',
   parserOptions:{
     ecmaVersion:'latest',
     sourceType: 'module',
   },
-  plugins: ['react',
-    '@typescript-eslint'],
+  plugins: [
+    'react',
+    '@typescript-eslint',
+  ],
   rules: {
     'react/react-in-jsx-scope':        'off',
     quotes:                            [ error, 'single' ], // シングルクォーテーションを強制

@@ -1,3 +1,3 @@
-import {view} from './view'
+import {ui} from './ui'
 
-export default view
+export default ui
