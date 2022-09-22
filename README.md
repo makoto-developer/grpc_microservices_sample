@@ -15,36 +15,17 @@ asdf install
 
 ## 技術
 
-# 運用
-
-## ブランチの切り方
-
-mainブランチにマージするとgithubから変なbadgeがつけられるので使わない。
-
-基本はdevブランチで開発
-```text
-git checkout dev
-```
-
-機能追加
-```text
-feature/<app名>/<修正タイトル>
-e.g. feature/protobuf/protogen
-```
-
-バグ修正
-```text
-fix/<app name>/<バグタイトル>
-fix/frontend/bugs
-```
-
 # 環境構築メモ
+
 ````shell
-mkdir protobuf
-mkdir protobuf/proto
+# プロジェクトを作成
+mkdir grpc-microservices
+cd $_
+mkdir -p protobuf/proto
 mkdir microservices
 mkdir frontend
 
+vi .tool-versions
 asdf install
 
 # gRPCをインストール
@@ -64,12 +45,9 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 
 # protoからtypescriptのコードを生成するライブラリを入れる
 yarn add -D grpc_tools_node_protoc_ts
-
-
 ````
 
-
-# bufを使ってprotoのプロジェクトを作成する
+bufを使ってprotoのプロジェクトを作成する
 
 [こちら](https://docs.buf.build/how-to/replace-protoc-with-buf)を参考に実装
 
