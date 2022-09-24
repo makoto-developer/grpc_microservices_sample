@@ -55,7 +55,9 @@ $ buf mod init
 $ buf build
 
 
-# Protoから各言語のコードを生成する
+# 使い方
+
+Protoから各言語のコードを生成する
 
 ```shell
 cd protobuf
@@ -65,3 +67,16 @@ cd protobuf
 make protogen
 ```
 
+frontendを起動
+
+```shell
+cd frontend
+yarn install
+yarn dev
+```
+
+backendを起動
+
+```shell
+go run ./main.go
+```
