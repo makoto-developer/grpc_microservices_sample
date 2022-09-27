@@ -71,3 +71,7 @@ backendを起動
 ```shell
 go run ./main.go
 ```
+
+## セットアップ
+
+[SETUP.md](./SETUP.md)
