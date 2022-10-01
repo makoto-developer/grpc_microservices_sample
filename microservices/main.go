@@ -1,17 +1,23 @@
 package main
 import (
-    "fmt"
     "github.com/gin-gonic/gin"
-    "strconv"
 )
+type AddParams struct {
+    X float64 `json:"x"`
+    Y float64 `json:"y"`
+}
 func add(c *gin.Context) {
-    x, _ := strconv.ParseFloat(c.Param("x"), 64)
-    y, _ := strconv.ParseFloat(c.Param("y"), 64)
-    c.String(200,  fmt.Sprintf("%f", x + y))
+    var ap AddParams
+    if err := c.ShouldBindJSON(&ap); err != nil {
+        c.JSON(400, gin.H{"error": "Calculator error"})
+        return
+    }
+
+    c.JSON(200,  gin.H{"answer": ap.X + ap.Y})
 }
 
 func main() {
     router := gin.Default()
-    router.GET("/add/:x/:y", add)
+    router.POST("/add", add)
     router.Run(":5000")
 }
