@@ -1,23 +1,23 @@
 package main
 import (
+    "fmt"
     "github.com/gin-gonic/gin"
 )
-type AddParams struct {
-    X float64 `json:"x"`
-    Y float64 `json:"y"`
-}
-func add(c *gin.Context) {
-    var ap AddParams
-    if err := c.ShouldBindJSON(&ap); err != nil {
-        c.JSON(400, gin.H{"error": "Calculator error"})
-        return
-    }
-
-    c.JSON(200,  gin.H{"answer": ap.X + ap.Y})
+type PrintJob struct {
+    JobId int `json:"jobId" binding:"required,gte=10000"`
+    Pages int `json:"pages" binding:"required,gte=1,lte=100"`
 }
 
 func main() {
     router := gin.Default()
-    router.POST("/add", add)
+    router.POST("/print", func(c *gin.Context) {
+        var p PrintJob
+        if err := c.ShouldBindJSON(&p); err != nil {
+            c.JSON(400, gin.H{"error": "Invalid input!"})
+            return
+        }
+        c.JSON(200, gin.H{"message":
+        fmt.Sprintf("PrintJob #%v started!", p.JobId)})
+    })
     router.Run(":5000")
 }
