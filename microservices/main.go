@@ -1,21 +1,17 @@
 package main
 import (
-    "runtime"
+    "fmt"
     "github.com/gin-gonic/gin"
+    "strconv"
 )
-
-func endpointHandler(c *gin.Context) {
-    c.String(200, "%s %s", c.Request.Method, c.Request.URL.Path)
+func add(c *gin.Context) {
+    x, _ := strconv.ParseFloat(c.Param("x"), 64)
+    y, _ := strconv.ParseFloat(c.Param("y"), 64)
+    c.String(200,  fmt.Sprintf("%f", x + y))
 }
 
 func main() {
     router := gin.Default()
-    router.GET("/products", endpointHandler)
-    router.GET("/products/:productId", endpointHandler)
-    // Eg: /products/1052
-    router.POST("/products", endpointHandler)
-    router.PUT("/products/:productId", endpointHandler)
-    router.DELETE("/products/:productId", endpointHandler)
+    router.GET("/add/:x/:y", add)
     router.Run(":5000")
 }
-
